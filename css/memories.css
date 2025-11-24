@@ -15,6 +15,12 @@ img {
     user-drag: none;
 }
 
+/* THÊM: Reset html để đảm bảo không có margin/padding ngoài ý muốn */
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -24,12 +30,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* KHẮC PHỤC LỖI CHIỀU CAO TRÊN MOBILE */
+/* FIX LỖI CHIỀU CAO VÀ CUỘN NGANG */
 .mobile-screen {
     width: 100%;
     max-width: 480px;
     margin: 0 auto;
-    /* Dùng dvh để tính toán chiều cao viewport động (fix lỗi cuộn trên iOS/Android) */
+    /* Đảm bảo chiều cao viewport động, khắc phục lỗi cuộn trên mobile */
     min-height: 100vh;
     height: 100vh;
     height: 100dvh; /* Ưu tiên dvh */
@@ -43,15 +49,16 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    /* KHÔNG CẦN height: 100% nữa, dùng flex-grow */
     flex-grow: 1; 
     min-height: 0; 
-    padding-top: 60px; 
+    /* Tăng padding-top để tạo vùng an toàn chắc chắn cho header/nút */
+    padding-top: 65px; 
 }
 
 .slider-container {
     width: 100%;
-    flex-grow: 1; /* Slider chiếm hết không gian giữa main */
+    /* Slider chiếm hết không gian còn lại giữa padding-top và wishes-section */
+    flex-grow: 1; 
     overflow: hidden;
     position: relative;
     touch-action: pan-x;
@@ -148,13 +155,12 @@ main {
     position: absolute;
     top: 12px;
     left: 12px; 
-    /* Thay đổi kích thước và kiểu dáng để phù hợp với chữ "Back" */
     width: auto;
     height: 40px;
     padding: 0 16px 0 10px;
     background: rgba(255, 255, 255, 0.9); 
     border: none;
-    border-radius: 20px; /* Bo góc dạng pill */
+    border-radius: 20px; 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
@@ -185,7 +191,7 @@ main {
     position: absolute;
     top: 12px;
     right: 12px;
-    width: 40px; /* Giảm kích thước để không chạm nút Back */
+    width: 40px; 
     height: 40px;
     background: rgba(255, 255, 255, 0.9);
     border: none;
@@ -215,7 +221,7 @@ main {
 
 /* Icon khi đang bật nhạc */
 .music-control.playing svg {
-    fill: #E94057; /* Highlight màu đỏ khi bật */
+    fill: #E94057; 
     animation: rotateMusic 2s linear infinite;
 }
 
@@ -238,7 +244,7 @@ main {
     width: 100%;
     padding: 20px 16px;
     background: #fff;
-    flex-shrink: 0; /* Đảm bảo phần này không bị co lại */
+    flex-shrink: 0; /* QUAN TRỌNG: Đảm bảo phần này giữ nguyên kích thước và không bị co lại */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -305,12 +311,12 @@ main {
     .mobile-screen {
         max-width: 100%;
         height: 100vh;
-        height: 100dvh; /* Đảm bảo chiều cao chính xác */
+        height: 100dvh; 
     }
 
     /* Giảm padding-top cho main để tận dụng không gian */
     main {
-        padding-top: 50px; 
+        padding-top: 55px; /* Điều chỉnh để tạo vùng an toàn */
     }
 
     .nav-arrow {
@@ -318,7 +324,7 @@ main {
         height: 36px;
     }
 
-    /* 💖 NÚT BACK (Responsive) */
+    /* NÚT BACK (Responsive) */
     .back-btn {
         height: 36px;
         padding: 0 14px 0 8px;
@@ -370,7 +376,6 @@ main {
 
 /* Fix cho màn hình nhỏ hơn */
 @media (max-width: 360px) {
-    /* ... (giữ nguyên các tinh chỉnh nhỏ hơn nếu cần) ... */
     .back-btn {
         font-size: 13px;
     }
