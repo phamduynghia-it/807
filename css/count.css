@@ -1,0 +1,151 @@
+/* --- CÀI ĐẶT CƠ BẢN VÀ CHỐNG LỖI GIAO DIỆN --- */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fdf6fa;
+    overflow: hidden; /* Ngăn cuộn toàn trang */
+    font-family: "Nunito", "Kanit", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- KHUNG MÀN HÌNH CHÍNH (SỬ DỤNG FLEXBOX) --- */
+.mobile-screen {
+    width: 100%;
+    max-width: 430px; /* Giới hạn chiều rộng trên tablet */
+    height: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column; /* Bố cục theo chiều dọc */
+    position: relative;
+    overflow: hidden; /* Quan trọng: ẩn nội dung bị tràn */
+}
+
+/* --- HEADER --- */
+header {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    z-index: 10;
+}
+.back-btn {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #e94057;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.back-btn svg {
+    margin-right: 4px;
+}
+
+/* --- NỘI DUNG CHÍNH (MAIN) --- */
+main {
+    flex-grow: 1; /* Cho phép main chiếm hết không gian còn lại */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; /* Phân bố đều không gian theo chiều dọc */
+    padding: 20px;
+    padding-top: 70px; /* Chừa chỗ cho header */
+    width: 100%;
+    overflow-y: auto; /* Cho phép cuộn nếu màn hình quá lùn */
+}
+
+.top-content {
+    text-align: center;
+}
+h1 {
+    font-weight: 900;
+    font-size: 28px;
+    color: #e94057;
+    margin: 0;
+}
+h2 {
+    font-weight: 400;
+    font-size: 16px;
+    color: #e96a7b;
+    margin: 5px 0 0 0;
+}
+
+.avatar-container {
+    width: 140px;   /* Tăng kích thước một chút cho cân đối */
+    height: 140px;
+    border-radius: 50%;
+    border: 6px solid #fce4e8;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(233, 64, 87, 0.2);
+    flex-shrink: 0; /* Không cho avatar bị co lại */
+}
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- THẺ ĐẾM NGƯỢC --- */
+.countdown-card {
+    background: #fff;
+    width: 100%;
+    max-width: 340px;
+    padding: 25px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(233, 64, 87, 0.1);
+}
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 15px; /* Tăng khoảng cách cho dễ nhìn */
+}
+
+.time-unit {
+    text-align: center;
+}
+
+.time-value {
+    font-size: 40px;
+    font-weight: 900;
+    color: #e94057;
+    line-height: 1;
+}
+
+.time-label {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* --- CHÂN TRANG --- */
+.footer-text {
+    text-align: center;
+}
+.footer-title {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+}
+.footer-message {
+    font-size: 18px;
+    color: #e94057;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+}

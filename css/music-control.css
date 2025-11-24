@@ -1,0 +1,92 @@
+/* Music Control Button Styles */
+.music-control-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #e94057;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.music-control-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.music-control-btn:active {
+    transform: scale(0.95);
+}
+
+.music-control-btn.playing {
+    background: #e94057;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.music-control-btn:not(.playing) {
+    background: rgba(255, 255, 255, 0.9);
+    color: #e94057;
+}
+
+.music-icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.music-control-btn.playing .music-icon {
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(233, 64, 87, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(233, 64, 87, 0.6);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(233, 64, 87, 0.3);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .music-control-btn {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .music-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .music-control-btn:hover {
+        transform: none;
+    }
+}

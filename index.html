@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <title>100 Days</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/protection.css" />
+        <link rel="stylesheet" href="css/numpad-custom.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&family=Quicksand:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container" id="welcome-screen">
+            <h1>100 Days</h1>
+            <p>To my love</p>
+            <button id="start-btn">Start!</button>
+        </div>
+
+        <div class="lock-container" id="lock-screen" style="display: none">
+            <div class="photo-frame">
+                <img src="images/img_memory/a3.jpg" alt="couple" />
+                <div class="photo-caption">i love you &lt;3</div>
+            </div>
+            <h2>Love's Lock</h2>
+            <p>Ngày kỷ niệm của chúng mình là ngày nào nhỉ?</p>
+            <div class="lock-input">
+                <span class="lock-icon">🔒</span>
+                <span id="password-dots"></span>
+            </div>
+            <div class="numpad">
+                <button class="num-btn num-1">1</button>
+                <button class="num-btn num-2">2</button>
+                <button class="num-btn num-3">3</button>
+                <button class="num-btn num-4">4</button>
+                <button class="num-btn num-5">5</button>
+                <button class="num-btn num-6">6</button>
+                <button class="num-btn num-7">7</button>
+                <button class="num-btn num-8">8</button>
+                <button class="num-btn num-9">9</button>
+                <button class="num-btn num-star">*</button>
+                <button class="num-btn num-0">0</button>
+                <button class="num-btn num-backspace" id="backspace">⌫</button>
+            </div>
+        </div>
+
+        <script src="js/script.js"></script>
+        <script src="prevent-zoom.js"></script>
+    </body>
+</html>

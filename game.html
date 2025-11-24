@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta name="theme-color" content="#e573b7" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <title>Love Puzzle</title>
+        <link rel="stylesheet" href="css/game.css" />
+        <link rel="stylesheet" href="css/music-control.css" />
+        <link rel="stylesheet" href="css/protection.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <!-- Bảo vệ source code -->
+        <script src="js/protection.js"></script>
+    </head>
+    <body>
+        <div class="mobile-screen">
+            <header>
+                <button
+                    class="back-btn"
+                    onclick="window.location.href='menu.html'"
+                    aria-label="Quay lại menu"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"
+                            fill="#E94057"
+                        />
+                    </svg>
+                    <span>Back</span>
+                </button>
+            </header>
+
+            <main>
+                <h1>Ghép hình để nhận yêu thương!</h1>
+
+                <!-- Bảng trống để ghép hình -->
+                <div class="puzzle-board" id="puzzleBoard"></div>
+
+                <!-- Khu vực chứa các mảnh ghép đã xáo trộn -->
+                <div class="pieces" id="pieces"></div>
+
+                <!-- Ảnh hoàn chỉnh khi thắng (ban đầu bị ẩn) -->
+                <div class="solution-image" id="solutionImage"></div>
+            </main>
+
+            <!-- Hiệu ứng trái tim rơi -->
+            <div class="falling-hearts"></div>
+        </div>
+
+        <!-- GIỮ NGUYÊN TỆP JS CỦA BẠN -->
+        <script src="js/game.js"></script>
+        <script src="js/music-controller.js"></script>
+        <script src="prevent-zoom.js"></script>
+    </body>
+</html>

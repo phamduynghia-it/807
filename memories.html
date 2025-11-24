@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <title>Best Moments</title>
+
+        <link rel="stylesheet" href="css/memories.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Poppins:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <div class="mobile-screen">
+            <main>
+                <div class="slider-container">
+                    <div class="slider-wrapper">
+                        <div class="slider" id="memorySlider"></div>
+                    </div>
+                </div>
+                <div class="wishes-section" id="wishesSection">
+                    <div class="wish-content">
+                        <div class="wish-text-wrapper">
+                            <h3 class="wish-title" id="wishTitle">Best Moments with You</h3>
+                            <p class="wish-subtitle" id="wishSubtitle">You're My Happy Place</p>
+                        </div>
+                        <img src="images/kdoi.png" alt="Decoration" class="wish-icon" />
+                    </div>
+                </div>
+            </main>
+
+            <button class="back-btn" aria-label="Back to menu" onclick="window.location.href='menu.html'">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"/>
+                </svg> Back
+            </button>
+
+            <button
+                class="music-control paused"
+                id="musicControl"
+                aria-label="Toggle music"
+            >
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+                    />
+                </svg>
+            </button>
+        </div>
+
+        <audio id="backgroundMusic" loop>
+            <source src="music.mp3" type="audio/mpeg" />
+        </audio>
+
+        <script src="js/memories.js"></script>
+    </body>
+</html>

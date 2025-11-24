@@ -1,0 +1,61 @@
+/* CSS bảo vệ source code */
+
+/* Ẩn tất cả text selection */
+* {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Ẩn scrollbar để tránh inspect */
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Ẩn outline khi focus */
+*:focus {
+    outline: none !important;
+}
+
+/* Ẩn các element có thể bị inspect */
+[data-debug] {
+    display: none !important;
+}
+
+/* Chống drag images */
+img {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+    pointer-events: none !important;
+}
+
+/* Ẩn source trong view source */
+@media print {
+    * {
+        display: none !important;
+    }
+}
+
+/* Chống highlight text */
+::selection {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+::-moz-selection {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+/* Ẩn các thông tin debug */
+[style*="debug"],
+[class*="debug"],
+[id*="debug"] {
+    display: none !important;
+}

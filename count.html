@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
+        <title>Love Calendar</title>
+        <link rel="stylesheet" href="css/count.css" />
+        <link rel="stylesheet" href="css/music-control.css" />
+        <link rel="stylesheet" href="css/protection.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Kanit:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Bảo vệ source code -->
+        <script src="js/protection.js"></script>
+    </head>
+    <body>
+        <div class="mobile-screen">
+            <header>
+                <button class="back-btn" onclick="window.history.back()">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"
+                            fill="#E94057"
+                        />
+                    </svg>
+                    <span>Back</span>
+                </button>
+            </header>
+
+            <main>
+                <div class="top-content">
+                    <h1>Our Love Journey</h1>
+                    <h2>Chúng ta đã bên nhau được bao lâu rồi nhỉ?</h2>
+                </div>
+
+                <div class="avatar-container">
+                    <img src="images/img_memory/a3.jpg" alt="Ảnh cặp đôi" />
+                </div>
+
+                <div class="countdown-card">
+                    <div class="countdown-grid">
+                        <div class="time-unit">
+                            <span class="time-value" id="years">00</span>
+                            <span class="time-label">Year</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value" id="months">00</span>
+                            <span class="time-label">Month</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value" id="days">00</span>
+                            <span class="time-label">Days</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value" id="hours">00</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value" id="minutes">00</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value" id="seconds">00</span>
+                            <span class="time-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-text">
+                    <p class="footer-title">We're been in love for...</p>
+                    <p class="footer-message">❤️ love u 3000 na ❤️</p>
+                </div>
+            </main>
+        </div>
+
+        <!-- Giữ nguyên tệp JS của bạn -->
+        <script src="js/count.js"></script>
+        <script src="js/music-controller.js"></script>
+    </body>
+</html>

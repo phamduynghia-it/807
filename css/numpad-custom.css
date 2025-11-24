@@ -1,0 +1,183 @@
+/* CSS tùy chỉnh cho numpad buttons */
+
+/* Class chung cho tất cả button số */
+.num-btn {
+    /* Kích thước cơ bản - tối ưu mobile */
+    width: 70px;
+    height: 70px;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 50%;
+    border: 2px solid #e94057;
+    background: rgba(255, 255, 255, 0.95);
+    color: #e94057;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+/* Hiệu ứng đặc biệt cho từng số - hiện rõ nét luôn */
+.num-1 {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.num-2 {
+    background: linear-gradient(135deg, #feca57, #ff9ff3);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(254, 202, 87, 0.4);
+}
+
+.num-3 {
+    background: linear-gradient(135deg, #48dbfb, #0abde3);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(72, 219, 251, 0.4);
+}
+
+.num-4 {
+    background: linear-gradient(135deg, #1dd1a1, #10ac84);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(29, 209, 161, 0.4);
+}
+
+.num-5 {
+    background: linear-gradient(135deg, #ff9ff3, #f368e0);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 159, 243, 0.4);
+}
+
+.num-6 {
+    background: linear-gradient(135deg, #54a0ff, #2e86de);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(84, 160, 255, 0.4);
+}
+
+.num-7 {
+    background: linear-gradient(135deg, #5f27cd, #341f97);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(95, 39, 205, 0.4);
+}
+
+.num-8 {
+    background: linear-gradient(135deg, #00d2d3, #54a0ff);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 210, 211, 0.4);
+}
+
+.num-9 {
+    background: linear-gradient(135deg, #ff9f43, #ee5a24);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 159, 67, 0.4);
+}
+
+/* Các button khác */
+.num-0 {
+    background: linear-gradient(135deg, #e84393, #fd79a8);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(232, 67, 147, 0.4);
+}
+
+.num-star {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+}
+
+.num-backspace {
+    background: linear-gradient(135deg, #e17055, #d63031);
+    color: #E84C86;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(225, 112, 85, 0.4);
+}
+
+/* Hover effect - nhẹ nhàng hơn */
+.num-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Active effect khi click */
+.num-btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Responsive design - tối ưu mobile */
+@media (max-width: 768px) {
+    .num-btn {
+        width: 65px;
+        height: 65px;
+        font-size: 20px;
+        margin: 3px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .num-btn:hover {
+        transform: scale(1.03);
+    }
+}
+
+@media (max-width: 480px) {
+    .num-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 18px;
+        margin: 2px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .num-btn:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* Tối ưu cho màn hình nhỏ */
+@media (max-width: 360px) {
+    .num-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+        margin: 1px;
+    }
+}
+
+/* Hiệu ứng ripple khi click (tùy chọn) */
+.num-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.num-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.num-btn:active::after {
+    width: 100px;
+    height: 100px;
+}

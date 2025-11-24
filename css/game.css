@@ -1,0 +1,489 @@
+/* --- CÀI ĐẶT CƠ BẢN VÀ FONT --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #fff0f5;
+    overflow-x: hidden; /* Đảm bảo không có thanh cuộn ngang */
+}
+
+/* --- CĂN GIỮA TOÀN BỘ GIAO DIỆN --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- KHUNG GIẢ LẬP ĐIỆN THOẠI --- */
+.mobile-screen {
+    width: 100%;
+    max-width: 430px;
+    height: 100%;
+    max-height: 850px;
+    background-color: #fff;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- HEADER VÀ NÚT BACK --- */
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+.back-btn {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #e94057;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+.back-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.back-btn svg {
+    margin-right: 4px;
+}
+
+/* --- KHU VỰC CHÍNH (MAIN) --- */
+main {
+    flex-grow: 1; /* Cho phép main lấp đầy không gian còn lại */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 20px 20px 20px; /* Chừa khoảng trống cho header */
+    text-align: center;
+}
+
+h1 {
+    color: #d63384;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(214, 51, 132, 0.1);
+}
+
+/* --- BẢNG TRÒ CHƠI VÀ CÁC MẢNH GHÉP --- */
+.puzzle-board,
+.pieces {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia đều 3 cột */
+    grid-template-rows: repeat(3, 1fr); /* Chia đều 3 hàng */
+    gap: 5px;
+    width: 90vw;
+    max-width: 260px;
+    margin: 0 auto;
+}
+
+/* Đảm bảo bảng luôn là hình vuông */
+.puzzle-board,
+.pieces {
+    aspect-ratio: 1 / 1;
+}
+
+/* Ô trống */
+.puzzle-board .slot {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.puzzle-board .slot.drag-over {
+    background-color: #e573b7;
+    border-color: #d63384;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+}
+
+.puzzle-board .slot.drag-over::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 1;
+    }
+}
+
+/* Mảnh ghép */
+.piece,
+.pieces div,
+.puzzle-board .slot > div {
+    width: 100%;
+    height: 100%;
+    max-width: 110px;
+    max-height: 110px;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.piece:active,
+.pieces div:active {
+    cursor: grabbing;
+    transform: scale(1.05);
+}
+
+.piece[style*="position: fixed"],
+.pieces div[style*="position: fixed"] {
+    width: 90px !important;
+    height: 90px !important;
+    max-width: none;
+    max-height: none;
+    min-width: 0;
+    min-height: 0;
+    pointer-events: none;
+    z-index: 1000;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: none !important;
+}
+
+/* Mảnh ghép bị khóa */
+.locked {
+    cursor: default !important;
+    transform: none !important;
+    box-shadow: 0 4px 15px rgba(229, 115, 183, 0.4) !important;
+    border: 2px solid #e573b7 !important;
+}
+
+/* --- ẢNH HOÀN CHỈNH KHI THẮNG --- */
+.solution-image {
+    display: none;
+    width: 90vw;
+    max-width: 260px;
+    aspect-ratio: 1 / 1;
+    margin: 10px auto 0 auto;
+    background-image: url("../images/puzzle.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(229, 115, 183, 0.6);
+    animation: fadeInScale 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(229, 115, 183, 0.1),
+        rgba(214, 51, 132, 0.1)
+    );
+    border-radius: 12px;
+}
+
+.solution-image.show {
+    display: block;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1) rotate(2deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* --- HIỆU ỨNG TRÁI TIM RƠI --- */
+.falling-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99;
+    overflow: hidden;
+}
+.heart {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23e573b7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: fall-heart 3s linear forwards;
+    filter: drop-shadow(0 2px 4px rgba(229, 115, 183, 0.3));
+}
+@keyframes fall-heart {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(850px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+@keyframes loveBounce {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3) rotate(-15deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(0.95) rotate(-2deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+}
+
+@keyframes heartBeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    75% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes sparkle {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        opacity: 0.8;
+        transform: scale(1.1) rotate(5deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05) rotate(-3deg);
+    }
+    75% {
+        opacity: 0.9;
+        transform: scale(1.15) rotate(8deg);
+    }
+}
+
+@keyframes loveFadeOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8) rotate(-10deg);
+    }
+}
+
+/* --- Tối ưu cho màn hình nhỏ hơn --- */
+@media (max-width: 430px) {
+    .mobile-screen {
+        border-radius: 0;
+        height: 100%;
+        max-height: none;
+        box-shadow: none;
+    }
+
+    main {
+        padding: 60px 15px 15px 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .puzzle-board,
+    .pieces {
+        width: 85vw;
+        max-width: 240px;
+        gap: 4px;
+    }
+
+    .piece[style*="position: fixed"],
+    .pieces div[style*="position: fixed"] {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .back-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .solution-image {
+        width: 85vw;
+        max-width: 240px;
+    }
+}
+
+/* Tối ưu cho màn hình rất nhỏ */
+@media (max-width: 360px) {
+    main {
+        padding: 50px 10px 10px 10px;
+    }
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .puzzle-board,
+    .pieces {
+        width: 80vw;
+        max-width: 220px;
+        gap: 3px;
+    }
+
+    .piece[style*="position: fixed"],
+    .pieces div[style*="position: fixed"] {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .solution-image {
+        width: 80vw;
+        max-width: 220px;
+    }
+}
+
+/* Tối ưu cho màn hình lớn hơn */
+@media (min-width: 431px) {
+    .mobile-screen {
+        border-radius: 40px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .puzzle-board,
+    .pieces {
+        max-width: 280px;
+    }
+
+    .solution-image {
+        max-width: 280px;
+    }
+}
+
+.pieces .full-image {
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/img_memory/a3.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px #e573b7;
+    animation: fadeInScale 0.8s ease-out;
+}
+
+.mobile-screen main {
+    padding: 70px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

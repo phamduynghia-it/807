@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
+        <title>Love Notes</title>
+        <link rel="stylesheet" href="css/message.css" />
+        <link rel="stylesheet" href="css/protection.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Bảo vệ source code -->
+        <script src="js/protection.js"></script>
+    </head>
+    <body>
+        <div class="mobile-screen">
+            <!-- Header (sẽ dính ở trên cùng) -->
+            <header class="chat-header">
+                <button
+                    class="back-btn"
+                    onclick="window.location.href='menu.html'"
+                >
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="#fff"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"
+                        />
+                    </svg>
+                    <span>Back</span>
+                </button>
+                <span class="chat-title">Bé iu Nhi 💞</span>
+            </header>
+
+            <!-- Khu vực chính chứa các tin nhắn -->
+            <main class="chat-area-wrapper">
+                <div class="chat-area" id="chatArea">
+                    <div id="messageContainer">
+                        <!-- Tin nhắn sẽ được thêm vào đây bằng JavaScript -->
+                    </div>
+                </div>
+            </main>
+
+            <!-- Thanh nhập liệu (sẽ dính ở dưới cùng) -->
+            <footer class="chat-footer">
+                <div class="footer-icon">+</div>
+                <div class="footer-icon camera-icon"></div>
+                <div class="footer-icon gallery-icon"></div>
+                <div class="text-input-placeholder">Aa</div>
+                <div class="footer-icon smiley-icon"></div>
+                <div class="footer-icon like-icon"></div>
+            </footer>
+        </div>
+
+        <!-- Giữ nguyên JS của bạn -->
+        <script src="js/message.js"></script>
+    </body>
+</html>
